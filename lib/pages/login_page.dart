@@ -29,11 +29,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset("assets/images/showing_support.png",
+            SvgPicture.asset("assets/images/showing_support.svg",
                 fit: BoxFit.contain),
             SizedBox(
               height: 20,

@@ -6,43 +6,53 @@ import 'package:flutter_app/widgets/drawer.dart';
 import '../widgets/item_widget.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final dummyList = List.generate(10, (index) => CatalogModel.items[0]);
 
   @override
   void initState() {
     super.initState();
     loadData();
   }
-
   loadData() async {
-    final catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    await Future.delayed(const Duration(seconds: 2));
+    final catalogJson =
+    await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
-    print(productsData);
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+    setState(() {});
   }
+
 
   @override
   Widget build(BuildContext context) {
-    int days = 30;
-    String name = "codepur";
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Page"),
+        title: const Text("Home Page"),
       ),
-      body: ListView.builder(
-        itemCount: dummyList.length,
-        itemBuilder: (context, index) {
-          return ItemWidget(
-            item: dummyList[index],
-          );
-        },
+      body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: (CatalogModel.items.isNotEmpty)
+              ? ListView.builder(
+            itemCount: CatalogModel.items.length,
+            itemBuilder: (context, index) {
+              return ItemWidget(
+                item: CatalogModel.items[index],
+              );
+            },
+          ) :const Center(
+            child: CircularProgressIndicator(),
+          )
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
