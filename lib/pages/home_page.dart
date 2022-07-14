@@ -55,26 +55,26 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: GridTile(
                           header: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: const BoxDecoration(
+                              color: Colors.deepPurple,
+                            ),
                             child: Text(
                               item.name,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
-                            padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.deepPurple,
+                          ),
+                          footer: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: const BoxDecoration(
+                              color: Colors.black,
+                            ),
+                            child: Text(
+                              "\$${item.price}",
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                           child: Image.network(item.image),
-                          footer: Container(
-                            child: Text(
-                              "\$" + item.price.toString(),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                            ),
-                          ),
                         ));
                   },
                 )
