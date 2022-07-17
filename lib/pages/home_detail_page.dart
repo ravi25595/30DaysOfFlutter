@@ -13,7 +13,9 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent,),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       body: SafeArea(
         bottom: false,
@@ -26,19 +28,28 @@ class HomeDetailPage extends StatelessWidget {
                 catalog.image,
               ),
             ).p16(),
-            Expanded(child: VxArc(
+            Expanded(
+                child: VxArc(
               edge: VxEdge.TOP,
               arcType: VxArcType.CONVEY,
-              height:30,
+              height: 30,
               child: Container(
                 width: context.screenWidth,
                 color: Colors.white,
                 child: Column(
                   children: [
-                    catalog.name.text.xl4.color(MyTheme.darkBluishColor).bold.make(),
+                    catalog.name.text.xl4
+                        .color(MyTheme.darkBluishColor)
+                        .bold
+                        .make(),
                     catalog.desc.text.xl.textStyle(context.captionStyle).make(),
                     10.heightBox,
-
+                    "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections."
+                        .text
+                        .xl
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .p16(),
                   ],
                 ).py64(),
               ),
@@ -57,11 +68,11 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                 backgroundColor:
-                MaterialStateProperty.all(MyTheme.darkBluishColor),
+                    MaterialStateProperty.all(MyTheme.darkBluishColor),
                 shape: MaterialStateProperty.all(const StadiumBorder()),
               ),
-              child: "Buy".text.xl.make(),
-            ).wh(100, 50)
+              child: "Add to Cart".text.xl.make(),
+            ).h(50)
           ],
         ).p16(),
       ),
