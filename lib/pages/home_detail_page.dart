@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/catalog.dart';
-import 'package:flutter_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -16,11 +15,11 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         bottom: false,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Hero(
               tag: Key(catalog.id.toString()),
@@ -35,11 +34,10 @@ class HomeDetailPage extends StatelessWidget {
               height: 30,
               child: Container(
                 width: context.screenWidth,
-                color: Colors.white,
+                color: context.cardColor,
                 child: Column(
                   children: [
                     catalog.name.text.xl4
-                        .color(MyTheme.darkBluishColor)
                         .bold
                         .make(),
                     catalog.desc.text.xl.textStyle(context.captionStyle).make(),
@@ -58,7 +56,7 @@ class HomeDetailPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -68,7 +66,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(MyTheme.darkBluishColor),
+                    MaterialStateProperty.all(context.theme.buttonColor),
                 shape: MaterialStateProperty.all(const StadiumBorder()),
               ),
               child: "Add to Cart".text.xl.make(),

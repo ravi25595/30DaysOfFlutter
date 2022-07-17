@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/routes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -32,8 +33,9 @@ class _LoginPageState extends State<LoginPage> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SvgPicture.asset("assets/images/showing_support.svg",
-                fit: BoxFit.contain),
+            SvgPicture.asset(
+              "assets/images/showing_support.svg",
+            ),
             SizedBox(
               height: 20,
             ),
@@ -51,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
-                key : _formKey,
+                key: _formKey,
                 child: Column(
                   children: [
                     TextFormField(
@@ -89,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 20,
                     ),
                     Material(
-                      color: Colors.deepPurple,
+                      color: context.theme.buttonColor,
                       borderRadius:
                           BorderRadius.circular(changeButton ? 20 : 8),
                       child: InkWell(
