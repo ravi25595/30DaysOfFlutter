@@ -9,8 +9,6 @@ import '../widgets/home_page_widgets/catalog_header.dart';
 import '../widgets/home_page_widgets/catalog_list.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
   @override
   State<HomePage> createState() => _HomePageState();
 }

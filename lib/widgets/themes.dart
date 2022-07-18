@@ -27,6 +27,7 @@ class MyTheme {
       canvasColor: darkCreamColor,
       buttonColor: lightBluishColor,
       accentColor: Colors.white,
+      fontFamily: GoogleFonts.poppins().fontFamily,
       appBarTheme: const AppBarTheme(
           color: Colors.black,
           //elevation: 0,
